@@ -1,0 +1,16 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<ul>
+  <%= paginate @events %>
+  <% @events.each do |event| %>
+    <li>
+      <%= event.name %>
+      <%#= link_to 'Show', :controller => 'events', :action => 'show', :id => event %>
+      <%= link_to 'Show', event_path(event) %>
+
+      <%= link_to 'Edit', edit_event_path(event) %>
+      <%= button_to 'Delete', event_path(event), :method => :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New event', :controller => 'events', :action => 'new' %>
